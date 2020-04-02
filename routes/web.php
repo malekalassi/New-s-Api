@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/category', function () {
+    return \App\Category::with('posts')->get();
 });
 
 Auth::routes();

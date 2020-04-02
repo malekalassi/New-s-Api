@@ -11,4 +11,17 @@ class Post extends Model
         'featured_image','voted_up','voted_down','user_id',
         'category_id'
     ];
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+
+    public function author (){
+        return $this->belongsTo(User::class);
+    }
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
+
 }
