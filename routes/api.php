@@ -12,9 +12,18 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/users', function () {
-    return \App\User::all();
-});
+/**
+ * @User related
+ */
+Route::get('/authors', 'Api\\UserController@index');
+Route::get('/author/{id}', 'Api\\UserController@show');
+Route::get('/posts/author/{id}' , 'Api\\UserController@posts');
+Route::get('/comments/author/{id}' , 'Api\\UserController@comments');
+
+
+/**
+ * @End user
+ */
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
