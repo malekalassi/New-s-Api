@@ -21,8 +21,8 @@ class CreatePostsTable extends Migration
             $table->dateTime('written_date');
             $table->string('featured_image')->nullable();
 
-            $table->integer('voted_up');
-            $table->integer('voted_down');
+            $table->integer('voted_up')->nullable();
+            $table->integer('voted_down')->nullable();
 
 //            RelationShip
             $table->integer('user_id');
