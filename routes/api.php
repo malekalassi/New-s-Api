@@ -22,12 +22,12 @@ Route::get('/comments/author/{id}' , 'Api\\UserController@comments');
 Route::get('/comments/post/{id}' ,'Api\\CommentController@show');
 
 
-
-
-
 /**
  * @End user
  */
+
+Route::post('/register' , 'Api\UserController@store');
+Route::post('/token' , 'Api\UserController@getToken');
 
 /**
  * @post Related
@@ -41,6 +41,6 @@ Route::get('/post/{id}' , 'Api\\PostController@show');
  * End Post
  *
  */
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:api')->group(function (){
+   Route::post('update-user/{id}' , 'Api\\UserController@update');
 });
